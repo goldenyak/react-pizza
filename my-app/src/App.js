@@ -17,7 +17,7 @@ function App() {
             <div className="content">
                 <div className="container">
                     <div className="content__top">
-                        <Categories items={["Мясные", "Вегетерианская", "Гриль", "Острые", "Закрытые"]}/>
+                        <Categories items={["Все", "Мясные", "Вегетерианская", "Гриль", "Острые", "Закрытые"]}/>
                         <Sort/>
                     </div>
                     <h2 className="content__title">Все пиццы</h2>
