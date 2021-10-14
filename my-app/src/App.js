@@ -5,9 +5,9 @@ import Sort from "./components/Sort";
 
 function App() {
 
-    const onClick = (name) => {
-        alert(name)
-    }
+    // const onClick = (name) => {
+    //     alert(name)
+    // }
 
     return (
         <div className="wrapper">
@@ -17,7 +17,7 @@ function App() {
             <div className="content">
                 <div className="container">
                     <div className="content__top">
-                        <Categories items={["Мясные", "Вегетерианская", "Гриль", "Острые", "Закрытые"]} onClick={onClick}/>
+                        <Categories items={["Мясные", "Вегетерианская", "Гриль", "Острые", "Закрытые"]}/>
                         <Sort/>
                     </div>
                     <h2 className="content__title">Все пиццы</h2>
