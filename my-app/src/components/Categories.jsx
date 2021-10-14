@@ -1,11 +1,11 @@
 import React from "react";
 
-function Categories({items}) {
+function Categories({items, onClick}) {
     return (
         <div className="categories">
             <ul>
                 <li className="active">Все</li>
-                {items.map(name => <li>{name}</li>)}
+                {items.map((name, index) => <li key={`${name}_${index}`} onClick={() => onClick(name)}> {name} </li>)}
             </ul>
         </div>
     )
