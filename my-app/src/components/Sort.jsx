@@ -14,7 +14,9 @@ function Sort({items}) {
     }
     const onSelectItem = (index) => {
         setActiveItem(index)
+        setVisiblePopup(false)
     }
+    const activeLabel = items[activeItem]
     const sortRef = React.useRef()
 
     React.useEffect(() => {
@@ -38,7 +40,7 @@ function Sort({items}) {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span onClick={showPopup}>популярности</span>
+                <span onClick={showPopup}>{activeLabel}</span>
             </div>
             {visiblePopup && <div className="sort__popup">
                 <ul>
