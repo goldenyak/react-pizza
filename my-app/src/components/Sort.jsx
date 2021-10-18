@@ -1,22 +1,26 @@
 import React, {useState} from "react";
 
-function Sort() {
+function Sort({items}) {
 
     const [visiblePopup, setVisiblePopup] = useState(false)
+    const [activeItem, setActiveItem] = useState(0)
     const showPopup = () => {
         setVisiblePopup(!visiblePopup)
-    };
+    }
     const handleOutsideClick = (e) => {
         if (!e.path.includes(sortRef.current)) {
             setVisiblePopup(false)
         }
-    };
-    const sortRef = React.useRef();
+    }
+    const onSelectItem = (index) => {
+        setActiveItem(index)
+    }
+    const sortRef = React.useRef()
 
     React.useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick)
 
-    }, []);
+    }, [])
 
     return (
         <div ref={sortRef} className="sort">
@@ -38,12 +42,11 @@ function Sort() {
             </div>
             {visiblePopup && <div className="sort__popup">
                 <ul>
-                    <li className="active">популярности</li>
-                    <li>цене</li>
-                    <li>алфавиту</li>
+                    {items.map((name, index) => <li className={activeItem === index ? 'active' : ''}
+                                                    key={`${name}_${index}`}
+                                                    onClick={() => onSelectItem(index)}> {name} </li>)}
                 </ul>
             </div>}
-
         </div>
     )
 }
