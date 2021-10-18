@@ -2,9 +2,9 @@ import React, {useState} from "react";
 
 function Sort() {
 
-    const [popup, setPopup] = useState(false)
+    const [visiblePopup, setVisiblePopup] = useState(false)
     const showPopup = () => {
-        setPopup(!popup)
+        setVisiblePopup(!visiblePopup)
     }
     const handleOutsideClick = (e) => {
         console.log(e)
@@ -32,7 +32,7 @@ function Sort() {
                 <b>Сортировка по:</b>
                 <span onClick={showPopup}>популярности</span>
             </div>
-            {popup && <div className="sort__popup">
+            {visiblePopup && <div className="sort__popup">
                 <ul>
                     <li className="active">популярности</li>
                     <li>цене</li>
