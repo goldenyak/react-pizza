@@ -6,6 +6,13 @@ function Sort() {
     const showPopup = () => {
         setPopup(!popup)
     }
+    const handleOutsideClick = (e) => {
+        console.log(e)
+    }
+
+    React.useEffect(() => {
+        document.body.addEventListener('click', handleOutsideClick)
+    })
 
     return (
         <div className="sort">
