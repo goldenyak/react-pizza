@@ -7,17 +7,19 @@ function Sort() {
         setVisiblePopup(!visiblePopup)
     };
     const handleOutsideClick = (e) => {
-        console.log(e)
+        if (!e.path.includes(sortRef.current)) {
+            setVisiblePopup(false)
+        }
     };
     const sortRef = React.useRef();
-    console.log(sortRef.current)
 
     React.useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick)
-    });
+
+    }, []);
 
     return (
-        <div className="sort">
+        <div ref={sortRef} className="sort">
             <div className="sort__label">
                 <svg
                     width="10"
