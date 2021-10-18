@@ -5,14 +5,16 @@ function Sort() {
     const [visiblePopup, setVisiblePopup] = useState(false)
     const showPopup = () => {
         setVisiblePopup(!visiblePopup)
-    }
+    };
     const handleOutsideClick = (e) => {
         console.log(e)
-    }
+    };
+    const sortRef = React.useRef();
+    console.log(sortRef.current)
 
     React.useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick)
-    })
+    });
 
     return (
         <div className="sort">
