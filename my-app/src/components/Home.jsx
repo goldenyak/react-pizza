@@ -6,7 +6,7 @@ function Home({items}) {
     return (
         <div className="content__items">
             {
-                items.map(obj => <PizzaBlock key={obj.id} name={obj.name} price={obj.price} image={obj.imageUrl}/>)
+                items.map(obj => <PizzaBlock key={obj.id} {...obj}/>)
             }
         </div>
     )
