@@ -25,8 +25,8 @@ function PizzaBlock({name, price, imageUrl, typeNames, types}) {
                         (<li
                             className={classNames(
                                 {
-                                    "active": activeTypes === index,
-                                    "disabled": !types.includes(index)
+                                    active: activeTypes === index,
+                                    disabled: !types.includes(index)
                                 }
                             )}
                             key={`${type}_${index}`}
