@@ -6,7 +6,7 @@ function Home({items}) {
     return (
         <div className="content__items">
             {
-                items.map(obj => <PizzaBlock key={obj.id} {...obj} type={["тонкое", "традиционное"]}/>)
+                items.map(obj => <PizzaBlock key={obj.id} {...obj}/>)
             }
         </div>
     )
