@@ -2,13 +2,18 @@ import React from "react";
 import classNames from "classnames";
 
 
-function PizzaBlock({name, price, imageUrl, typeNames, types}) {
-    typeNames = ["тонкое", "традиционное"]
-    const [activeTypes, setActiveTypes] = React.useState(0)
+function PizzaBlock({name, price, imageUrl, types, sizes}) {
+   const availableType = ["тонкое", "традиционное"]
+   const availableSize = [26, 30, 40]
+    const [activeTypes, setActiveTypes] = React.useState(types[0])
+    const [activeSizes, setActiveSizes] = React.useState(0)
     console.log(name, types)
 
     const onSelectTypes = (index) => {
         setActiveTypes(index)
+    }
+    const onSelectSizes = (index) => {
+        setActiveSizes(index)
     }
 
     return (
@@ -21,7 +26,7 @@ function PizzaBlock({name, price, imageUrl, typeNames, types}) {
             <h4 className="pizza-block__title">{name}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    {typeNames.map((type, index) =>
+                    {availableType.map((type, index) =>
                         (<li
                             className={classNames(
                                 {
@@ -35,10 +40,18 @@ function PizzaBlock({name, price, imageUrl, typeNames, types}) {
                         </li>))}
                 </ul>
                 <ul>
-                    <li className="active">26 см.</li>
-
-                    <li>30 см.</li>
-                    <li>40 см.</li>
+                    {availableSize.map((size, index) =>
+                        (<li
+                            className={classNames(
+                                {
+                                    active: activeSizes === index,
+                                    disabled: !sizes.includes(size)
+                                }
+                            )}
+                            key={`${size}_${index}`}
+                            onClick={() => onSelectSizes(index)}>
+                            {size}
+                        </li>))}
                 </ul>
             </div>
             <div className="pizza-block__bottom">
