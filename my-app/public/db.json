@@ -177,10 +177,11 @@
     {
       "id": 10,
       "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/26e1d3debfa64ce18ce6574fd6ee9cc9_292x292.jpeg",
+      "slimImageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/1ef649d0c0d045c1a943472d5aab71c3_584x584.jpeg",
       "name": "Аррива",
       "types": [
-        0,
-        1
+        1,
+        0
       ],
       "sizes": [
         26,
@@ -193,7 +194,8 @@
     },
     {
       "id": 11,
-      "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/2a031eb8dff94650a9b1f70d770ec5ad_292x292.jpeg",
+      "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/2a031eb8dff94650a9b1f70d770ec5ad_584x584.jpeg",
+      "slimImageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/46aae33bf7e04fde81e445a9b66a2982_584x584.jpeg",
       "name": "Фристайло",
       "types": [
         0,
