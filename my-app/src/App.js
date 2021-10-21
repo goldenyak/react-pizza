@@ -1,23 +1,26 @@
 import React, {useState} from "react";
-import './scss/app.scss';
+import axios from 'axios';
+import PropTypes from 'prop-types';
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import {Route} from "react-router-dom";
-import PizzaBlock from "./components/PizzaBlock";
 import Home from "./components/Home";
-
+import './scss/app.scss';
 
 function App() {
 
     const [pizzas, setPizzas] = useState([])
 
     React.useEffect(() => {
-        fetch('http://localhost:3000/db.json')
-            .then((res) => res.json())
-            .then((json) => {
-                setPizzas(json.pizzas)
-            })
+        axios.get('http://localhost:3000/db.json').then(({data}) => {
+            setPizzas(data.pizzas)
+        })
+        // fetch('http://localhost:3000/db.json')
+        //     .then((res) => res.json())
+        //     .then((json) => {
+        //         setPizzas(json.pizzas)
+        //     })
     }, [])
 
     return (
