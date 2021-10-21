@@ -2,9 +2,9 @@ import React from "react";
 import classNames from "classnames";
 
 
-function PizzaBlock({name, price, imageUrl, types, sizes}) {
-   const availableType = ["тонкое", "традиционное"]
-   const availableSize = [26, 30, 40]
+function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes}) {
+    const availableType = ["тонкое", "традиционное"]
+    const availableSize = [26, 30, 40]
     const [activeTypes, setActiveTypes] = React.useState(types[0])
     const [activeSizes, setActiveSizes] = React.useState(0)
     console.log(name, types)
@@ -20,7 +20,7 @@ function PizzaBlock({name, price, imageUrl, types, sizes}) {
         <div className="pizza-block">
             <img
                 className="pizza-block__image"
-                src={imageUrl}
+                src={activeTypes === 1 ? imageUrl : slimImageUrl}
                 alt="Pizza"
             />
             <h4 className="pizza-block__title">{name}</h4>
@@ -50,7 +50,7 @@ function PizzaBlock({name, price, imageUrl, types, sizes}) {
                             )}
                             key={`${size}_${index}`}
                             onClick={() => onSelectSizes(index)}>
-                            {size}
+                            {size} см.
                         </li>))}
                 </ul>
             </div>
