@@ -5,6 +5,9 @@ function Sort({items}) {
 
     const [visiblePopup, setVisiblePopup] = useState(false)
     const [activeItem, setActiveItem] = useState(0)
+    const activeLabel = items[activeItem].name
+    const sortRef = React.useRef()
+
     const showPopup = () => {
         setVisiblePopup(!visiblePopup)
     }
@@ -17,8 +20,6 @@ function Sort({items}) {
         setActiveItem(index)
         setVisiblePopup(false)
     }
-    const activeLabel = items[activeItem]
-    const sortRef = React.useRef()
 
     React.useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick)
