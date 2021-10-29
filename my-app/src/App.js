@@ -6,21 +6,18 @@ import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import {Route} from "react-router-dom";
 import Home from "./components/Home";
+import {useSelector, useDispatch} from "react-redux";
 import './scss/app.scss';
+import setPizzas from "./redux/action/pizzas";
 
-function App() {
+function App({items}) {
 
-    const [pizzas, setPizzas] = useState([])
+    const dispatch = useDispatch();
 
     React.useEffect(() => {
         axios.get('http://localhost:3000/db.json').then(({data}) => {
-            setPizzas(data.pizzas)
+            dispatch(setPizzas(data.pizzas));
         })
-        // fetch('http://localhost:3000/db.json')
-        //     .then((res) => res.json())
-        //     .then((json) => {
-        //         setPizzas(json.pizzas)
-        //     })
     }, [])
 
     return (
@@ -37,7 +34,7 @@ function App() {
                         ]}/>
                     </div>
                     <h2 className="content__title">Все пиццы</h2>
-                    <Home items={pizzas}/>
+                    <Home items={[]}/>
                 </div>
             </div>
         </div>
