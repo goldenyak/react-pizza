@@ -1,4 +1,13 @@
-import {createStore} from 'redux'
+import {createStore, combineReducers} from 'redux'
+import filterReducer from './reducers/filter'
+import pizzasReducer from './reducers/pizzas'
+
+const rootReducer = combineReducers({
+    filterReducer,
+    pizzasReducer,
+})
+
+console.log(rootReducer)
 
 const store = createStore(counterReducer)
 

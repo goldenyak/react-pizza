@@ -1,8 +1,9 @@
 const initialState = {
     items: [],
+    isLoaded: false,
 }
 
-const filter = (state = initialState, action) => {
+const pizzas = (state = initialState, action) => {
     if (action.type === "SET_PIZZAS") {
         return {
             ...state,
