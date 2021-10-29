@@ -1,25 +1,12 @@
 import {createStore, combineReducers} from 'redux'
-import filterReducer from './reducers/filter'
-import pizzasReducer from './reducers/pizzas'
+import filter from './reducers/filter'
+import pizzas from './reducers/pizzas'
 
 const rootReducer = combineReducers({
-    filterReducer,
-    pizzasReducer,
+    filter,
+    pizzas
 })
 
-console.log(rootReducer)
-
-const store = createStore(counterReducer)
-
-function counterReducer(state = 0, action) {
-    switch (action.type) {
-        case 'incremented':
-            return state + 3
-        case 'decremented':
-            return state - 1
-        default:
-            return state
-    }
-}
+const store = createStore(rootReducer)
 
 export default store;
