@@ -1,14 +1,12 @@
 import React, {useState} from "react";
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
-import {Route} from "react-router-dom";
 import Home from "./components/Home";
 import {useSelector, useDispatch} from "react-redux";
-import './scss/app.scss';
 import setPizzas from "./redux/action/pizzas";
+import './scss/app.scss';
 
 function App({items}) {
 
