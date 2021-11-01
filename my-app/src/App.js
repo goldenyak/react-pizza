@@ -11,13 +11,12 @@ import './scss/app.scss';
 function App() {
 
     const dispatch = useDispatch();
-    const hranilishe = useSelector(({pizzas, filter}) => {
+    const {items} = useSelector(({pizzas, filter}) => {
         return {
             items: pizzas.items,
             sortBy: filter.sortBy
         }
     })
-    console.log(hranilishe)
 
     React.useEffect(() => {
         axios.get('http://localhost:3000/db.json').then(({data}) => {
@@ -39,7 +38,7 @@ function App() {
                         ]}/>
                     </div>
                     <h2 className="content__title">Все пиццы</h2>
-                    <Home items={[]}/>
+                    <Home items={items}/>
                 </div>
             </div>
         </div>
