@@ -1,7 +1,14 @@
 import React from "react";
 import PizzaBlock from "./PizzaBlock";
+import {useSelector} from "react-redux";
 
-function Home({items}) {
+function Home() {
+
+    const {items} = useSelector(({pizzas, filter}) => {
+        return {
+            items: pizzas.items,
+        }
+    })
 
     return (
         <div className="content__items">
