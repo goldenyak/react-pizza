@@ -8,7 +8,7 @@ import {useSelector, useDispatch} from "react-redux";
 import setPizzas from "./redux/action/pizzas";
 import './scss/app.scss';
 
-function App({items}) {
+function App() {
 
     const dispatch = useDispatch();
     const hranilishe = useSelector(({pizzas, filter}) => {
