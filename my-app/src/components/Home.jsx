@@ -4,11 +4,7 @@ import {useSelector} from "react-redux";
 
 function Home() {
 
-    const {items} = useSelector(({pizzas, filter}) => {
-        return {
-            items: pizzas.items,
-        }
-    })
+    const items = useSelector(({pizzas}) => pizzas.items)
 
     return (
         <div className="content__items">
