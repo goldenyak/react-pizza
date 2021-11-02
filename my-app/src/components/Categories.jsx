@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import {setCategory} from "../redux/action/filter";
 
 
-function Categories({items}) {
+const Categories = React.memo(function Categories({items}) {
 
     const dispatch = useDispatch();
 
@@ -23,6 +23,6 @@ function Categories({items}) {
             </ul>
         </div>
     )
-}
+})
 
 export default Categories;
