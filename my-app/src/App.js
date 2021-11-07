@@ -12,7 +12,7 @@ function App() {
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-
+        console.log(fetchPizzas)
     }, [])
 
     return (
