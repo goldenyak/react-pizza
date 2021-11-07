@@ -5,18 +5,14 @@ import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import Home from "./components/Home";
 import {useDispatch} from "react-redux";
-import setPizzas from "./redux/action/pizzas";
+import {fetchPizzas} from "./redux/action/pizzas";
 import './scss/app.scss';
 
 function App() {
-
     const dispatch = useDispatch();
 
-
     React.useEffect(() => {
-        axios.get('http://localhost:3001/pizzas').then(({data}) => {
-            dispatch(setPizzas(data));
-        })
+
     }, [])
 
     return (
