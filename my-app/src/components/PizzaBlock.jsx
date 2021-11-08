@@ -1,17 +1,26 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from 'prop-types';
-import ContentLoader from "react-content-loader";
+import PizzaLoadingBlock from "./PizzaLoadingBlock";
 
 
-function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes}) {
+function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes, isLoading}) {
 
     PizzaBlock.propTypes = {
         name: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         imageUrl: PropTypes.string.isRequired,
-        slimImageUrl: PropTypes.string.isRequired
+        slimImageUrl: PropTypes.string.isRequired,
+        isLoaded: PropTypes.bool.isRequired,
     }
+
+    // PizzaBlock.defaultProps = {
+    //     name: '---',
+    //     price: 0,
+    //     types: [],
+    //     sizes: [],
+    //     isLoaded: false,
+    // }
 
     const availableType = ["тонкое", "традиционное"]
     const availableSize = [26, 30, 40]
@@ -25,6 +34,11 @@ function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes}) {
         setActiveSizes(index)
     }
 
+    if (isLoading) {
+        return (
+            <PizzaLoadingBlock/>
+        )
+    }
 
     return (
         <div className="pizza-block">
