@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from 'prop-types';
-import PizzaLoadingBlock from "./PizzaLoadingBlock";
 
 
 function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes, isLoading}) {
@@ -34,11 +33,6 @@ function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes, isLoadin
         setActiveSizes(index)
     }
 
-    if (isLoading) {
-        return (
-            <PizzaLoadingBlock/>
-        )
-    }
 
     return (
         <div className="pizza-block">

@@ -1,6 +1,7 @@
 import React from "react";
 import PizzaBlock from "./PizzaBlock";
 import {useSelector} from "react-redux";
+import PizzaLoadingBlock from "./PizzaLoadingBlock";
 
 function Home() {
 
@@ -9,9 +10,7 @@ function Home() {
 
     return (
         <div className="content__items">
-            {
-                isLoaded && items.map(obj => <PizzaBlock key={obj.id} isLoading={true} {...obj}/>)
-            }
+            {isLoaded ? items.map(obj => <PizzaBlock key={obj.id} isLoading={true} {...obj}/>) : Array(12).fill(<PizzaLoadingBlock/>)}
         </div>
     )
 }
