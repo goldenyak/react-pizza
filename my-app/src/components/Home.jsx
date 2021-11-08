@@ -10,7 +10,10 @@ function Home() {
 
     return (
         <div className="content__items">
-            {isLoaded ? items.map(obj => <PizzaBlock key={obj.id} isLoading={true} {...obj}/>) : Array(12).fill(<PizzaLoadingBlock/>)}
+            {isLoaded
+                ? items.map(obj => <PizzaBlock key={obj.id} isLoading={true} {...obj}/>)
+                : Array(12).fill(<PizzaLoadingBlock/>)
+            }
         </div>
     )
 }
