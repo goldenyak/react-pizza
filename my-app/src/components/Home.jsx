@@ -1,12 +1,19 @@
 import React from "react";
 import PizzaBlock from "./PizzaBlock";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import PizzaLoadingBlock from "./PizzaLoadingBlock";
+import {fetchPizzas} from "../redux/action/pizzas";
 
 function Home() {
 
-    const items = useSelector(({pizzas}) => pizzas.items)
-    const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded)
+    const dispatch = useDispatch();
+
+    React.useEffect(() => {
+        dispatch(fetchPizzas())
+    }, [])
+
+    const {items, isLoaded} = useSelector(({pizzas}) => pizzas)
+    const {category, sortBy} = useSelector(({filter}) => filter)
 
     return (
         <div className="content__items">

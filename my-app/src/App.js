@@ -1,19 +1,11 @@
-import React, {useState} from "react";
-import axios from 'axios';
+import React from "react";
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import Home from "./components/Home";
-import {useDispatch} from "react-redux";
-import {fetchPizzas} from "./redux/action/pizzas";
 import './scss/app.scss';
 
 function App() {
-    const dispatch = useDispatch();
-
-    React.useEffect(() => {
-        dispatch(fetchPizzas())
-    }, [])
 
     return (
         <div className="wrapper">
