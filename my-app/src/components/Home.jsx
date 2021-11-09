@@ -6,14 +6,16 @@ import {fetchPizzas} from "../redux/action/pizzas";
 
 function Home() {
 
+    const {items, isLoaded} = useSelector(({pizzas}) => pizzas)
+    const {category, sortBy} = useSelector(({filter}) => filter)
+
     const dispatch = useDispatch();
 
     React.useEffect(() => {
         dispatch(fetchPizzas())
-    }, [])
+    }, [category])
 
-    const {items, isLoaded} = useSelector(({pizzas}) => pizzas)
-    const {category, sortBy} = useSelector(({filter}) => filter)
+
 
     return (
         <div className="content__items">
