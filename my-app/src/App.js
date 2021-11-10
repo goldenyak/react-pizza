@@ -29,7 +29,7 @@ function App() {
                         <Sort items={[
                             {name: "популярности", type: "popular"},
                             {name: "цене", type: 'price'},
-                            {name: "алфавиту", type: 'alphabet'}
+                            {name: "алфавиту", type: 'name'}
                         ]}
                               activeSortType={sortBy}
                               onClickSortType={onSelectSortType}/>
