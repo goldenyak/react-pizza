@@ -13,7 +13,7 @@ function Home() {
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        dispatch(fetchPizzas())
+        dispatch(fetchPizzas(sortBy, category))
     }, [category, sortBy])
 
 

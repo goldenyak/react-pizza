@@ -1,9 +1,9 @@
 import axios from "axios";
 
 
-export const fetchPizzas = () => (dispatch) => {
+export const fetchPizzas = (sortBy, category) => (dispatch) => {
     dispatch(setLoaded(false))
-    axios.get('http://localhost:3001/pizzas').then(({data}) => {
+    axios.get(`http://localhost:3001/pizzas?${category !== 0 ? `category=${category}` : ''}&_sortBy=${sortBy}&_order=asc`).then(({data}) => {
         dispatch(setPizzas(data))
     });
 };
