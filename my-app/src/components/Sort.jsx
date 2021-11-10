@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 
-function Sort({items}) {
+function Sort({items, activeSortType, onClickSortType}) {
     const [visiblePopup, setVisiblePopup] = useState(false)
-    const [activeItem, setActiveItem] = useState(0)
-    const activeLabel = items[activeItem].name
+    const activeLabel = items.find(obj => obj.type === activeSortType).name
     const sortRef = React.useRef()
 
     const showPopup = () => {
@@ -15,7 +14,7 @@ function Sort({items}) {
         }
     }
     const onSelectItem = (index) => {
-        setActiveItem(index)
+        onClickSortType(index)
         setVisiblePopup(false)
     }
 
@@ -44,9 +43,9 @@ function Sort({items}) {
             </div>
             {visiblePopup && <div className="sort__popup">
                 <ul>
-                    {items.map((obj, index) => <li className={activeItem === index ? 'active' : ''}
+                    {items.map((obj, index) => <li className={activeSortType === obj.type ? 'active' : ''}
                                                     key={`${obj.type}_${index}`}
-                                                    onClick={() => onSelectItem(index)}> {obj.name} </li>)}
+                                                    onClick={() => onSelectItem(obj.type)}> {obj.name} </li>)}
                 </ul>
             </div>}
         </div>
