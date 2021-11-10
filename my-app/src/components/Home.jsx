@@ -3,7 +3,6 @@ import PizzaBlock from "./PizzaBlock";
 import {useDispatch, useSelector} from "react-redux";
 import PizzaLoadingBlock from "./PizzaLoadingBlock";
 import {fetchPizzas} from "../redux/action/pizzas";
-import {setCategory, setSortBy} from "../redux/action/filter";
 
 function Home() {
 
@@ -15,10 +14,6 @@ function Home() {
     React.useEffect(() => {
         dispatch(fetchPizzas(sortBy, category))
     }, [category, sortBy])
-
-
-
-
 
     return (
         <div className="content__items">

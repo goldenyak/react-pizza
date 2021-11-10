@@ -7,11 +7,8 @@ const Categories = React.memo(function Categories({items, activeCategory}) {
 
     const dispatch = useDispatch();
 
-    // const [activeItem, setActiveItem] = useState(0)
-
     const onSelectItem = (index) => {
         dispatch(setCategory(index))
-        // setActiveItem(index)
     }
 
     return (

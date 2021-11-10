@@ -17,7 +17,6 @@ function App() {
         dispatch(setSortBy(type))
     }
 
-
     return (
         <div className="wrapper">
             <Header/>
