@@ -18,6 +18,9 @@ function Home() {
         dispatch(setSortBy(type))
     }
 
+    const onClickAddPizza = () => {
+        console.log('hello')
+    }
 
     React.useEffect(() => {
         dispatch(fetchPizzas(sortBy, category))
@@ -40,7 +43,7 @@ function Home() {
             <div className="content__items">
                 {isLoaded
                     ? items.map((obj) =>
-                        (<PizzaBlock onClickAddPizza={() => alert(123)}
+                        (<PizzaBlock onClickAddPizza={(obj) => console.log(obj)}
                                      key={obj.id}
                                      isLoading={true}
                                      {...obj}

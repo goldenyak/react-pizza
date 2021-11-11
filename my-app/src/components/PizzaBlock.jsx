@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Button from "./Button";
 
 
-function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes, onClickAddPizza}) {
+function PizzaBlock({id, name, price, imageUrl, slimImageUrl, types, sizes, onClickAddPizza}) {
 
     const availableType = ["тонкое", "традиционное"]
     const availableSize = [26, 30, 40]
@@ -12,10 +12,22 @@ function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes, onClickA
 
     const onSelectTypes = (index) => {
         setActiveTypes(index)
-    }
+    } // Выбор типа пиццы
     const onSelectSizes = (index) => {
         setActiveSizes(index)
-    }
+    } // Выбор размера пиццы
+    const onAddPizza =  () => {
+        const obj = {
+            id,
+            name,
+            imageUrl,
+            slimImageUrl,
+            price,
+            sizes: activeSizes,
+            types: activeTypes,
+        }
+        onClickAddPizza()
+    } // Добавление пиццы --- Передаем параметры пиццы, которые будем сетать в корзину
 
     return (
         <div className="pizza-block">
@@ -57,7 +69,7 @@ function PizzaBlock({name, price, imageUrl, slimImageUrl, types, sizes, onClickA
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price} ₽</div>
-                <Button onClick={onClickAddPizza} className="button--add" outline>
+                <Button onClick={onAddPizza} className="button--add" outline>
                     <svg
                         width="12"
                         height="12"
