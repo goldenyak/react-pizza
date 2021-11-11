@@ -3,10 +3,8 @@ import PizzaBlock from "./PizzaBlock";
 import {useDispatch, useSelector} from "react-redux";
 import PizzaLoadingBlock from "./PizzaLoadingBlock";
 import {fetchPizzas} from "../redux/action/pizzas";
-import {Route} from "react-router-dom";
 import Categories from "./Categories";
 import Sort from "./Sort";
-import Cart from "./Cart";
 import {setSortBy} from "../redux/action/filter";
 
 function Home() {

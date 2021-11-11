@@ -18,7 +18,6 @@ const pizzas = (state = initialState, action) => {
             return {
                 ...state,
                 totalCount: action.payload,
-
             };
 
         default: return state;
