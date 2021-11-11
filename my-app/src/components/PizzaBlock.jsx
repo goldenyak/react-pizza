@@ -22,8 +22,8 @@ function PizzaBlock({id, name, price, imageUrl, slimImageUrl, types, sizes, onCl
             name,
             imageUrl,
             price,
-            sizes: activeSizes,
-            types: activeTypes,
+            size: availableSize[activeSizes] + ' см.',
+            type: availableType[activeTypes],
         }
         onClickAddPizza(obj)
     } // Добавление пиццы --- Передаем параметры пиццы, которые будем сетать в корзину
