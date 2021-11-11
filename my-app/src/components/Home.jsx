@@ -18,6 +18,7 @@ function Home() {
         dispatch(setSortBy(type))
     }
 
+
     React.useEffect(() => {
         dispatch(fetchPizzas(sortBy, category))
     }, [category, sortBy])
@@ -38,7 +39,13 @@ function Home() {
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
                 {isLoaded
-                    ? items.map(obj => <PizzaBlock key={obj.id} isLoading={true} {...obj}/>)
+                    ? items.map((obj) =>
+                        (<PizzaBlock onClickAddPizza={() => alert(123)}
+                                     key={obj.id}
+                                     isLoading={true}
+                                     {...obj}
+                            />
+                        ))
                     : Array(12).fill(<PizzaLoadingBlock/>)
                 }
             </div>
