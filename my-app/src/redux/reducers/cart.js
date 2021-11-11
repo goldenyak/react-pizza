@@ -7,11 +7,15 @@ const initialState = {
 
 const pizzas = (state = initialState, action) => {
     switch (action.type) {
-        case 'SET_TOTAL_PRICE':
+        case 'ADD_PIZZA_CART':
             return {
                 ...state,
-                totalPrice: action.payload,
-
+                items: {
+                    [action.payload.id]: [
+                        ...state.items[action.payload.id],
+                        action.payload
+                    ]
+                }
             };
 
         case 'SET_TOTAL_COUNT':
