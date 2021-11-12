@@ -11,6 +11,7 @@ function Home() {
 
     const {items, isLoaded} = useSelector(({pizzas}) => pizzas)
     const {category, sortBy} = useSelector(({filter}) => filter)
+    const {addPizzaToCart} = useSelector(({cart}) => cart)
 
     const dispatch = useDispatch();
 
@@ -18,8 +19,11 @@ function Home() {
         dispatch(setSortBy(type))
     }
 
-    const onClickAddPizza = () => {
-        console.log('hello')
+    const handleAddPizzaToCart = (obj) => {
+        dispatch({
+            type: 'ADD_PIZZA_CART',
+            payload: obj,
+        })
     }
 
     React.useEffect(() => {
@@ -43,7 +47,7 @@ function Home() {
             <div className="content__items">
                 {isLoaded
                     ? items.map((obj) =>
-                        (<PizzaBlock onClickAddPizza={(obj) => console.log(obj)}
+                        (<PizzaBlock onClickAddPizza={handleAddPizzaToCart}
                                      key={obj.id}
                                      isLoading={true}
                                      {...obj}
