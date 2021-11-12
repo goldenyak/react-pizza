@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Button from "./Button";
 
 
-function PizzaBlock({id, name, price, imageUrl, slimImageUrl, types, sizes, onClickAddPizza}) {
+function PizzaBlock({id, name, price, imageUrl, slimImageUrl, types, sizes, onClickAddPizza, addedCount}) {
 
     const availableType = ["тонкое", "традиционное"]
     const availableSize = [26, 30, 40]
@@ -81,6 +81,7 @@ function PizzaBlock({id, name, price, imageUrl, slimImageUrl, types, sizes, onCl
                         />
                     </svg>
                     <span>Добавить</span>
+                    {addedCount && <i>{addedCount}</i>}
                 </Button>
             </div>
         </div>
