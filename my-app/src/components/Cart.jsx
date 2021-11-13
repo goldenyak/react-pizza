@@ -1,10 +1,13 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import CartItem from "./CartItem";
+import {useSelector} from "react-redux";
 
 function Cart() {
-    return (
 
+    const {totalPrice, totalCount} = useSelector(({cart}) => cart)
+
+    return (
         <div className="container container--cart">
             <div className="cart">
                 <div className="cart__top">
@@ -46,8 +49,8 @@ function Cart() {
                 </div>
                 <div className="cart__bottom">
                     <div className="cart__bottom-details">
-                        <span> Всего пицц: <b>3 шт.</b> </span>
-                        <span> Сумма заказа: <b>900 ₽</b> </span>
+                        <span> Всего пицц: <b>{totalCount} шт.</b> </span>
+                        <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
                     </div>
                     <div className="cart__bottom-buttons">
                         <Link to="/" className="button button--outline button--add go-back-btn">
