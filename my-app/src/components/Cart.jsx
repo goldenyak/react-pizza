@@ -2,10 +2,15 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import CartItem from "./CartItem";
 import {useSelector} from "react-redux";
+import {element} from "prop-types";
 
 function Cart() {
 
-    const {totalPrice, totalCount} = useSelector(({cart}) => cart)
+    const {totalPrice, totalCount, items} = useSelector(({cart}) => cart)
+
+    const groupPizzas = Object.keys(items).map(key => {
+        return items[key][0]
+    })
 
     return (
         <div className="container container--cart">
@@ -44,7 +49,9 @@ function Cart() {
                     </div>
                 </div>
                 <div className="content__items">
-                    <CartItem name="Диабло 🌶️🌶️" type="традиционное" size={40}/>
+                    {groupPizzas.map(element =>
+                        <CartItem name={element.name} type={element.type} size={element.size} imageUrl={element.imageUrl}/>)}
+
 
                 </div>
                 <div className="cart__bottom">
