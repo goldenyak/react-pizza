@@ -14,7 +14,9 @@ function Cart() {
         return items[key].items[0]
     })
 
-    console.log(totalPrice)
+    const onClearCart = () => {
+        dispatch(clearCart())
+    }
 
     return (
         <div className="container container--cart">
@@ -49,7 +51,7 @@ function Cart() {
                                   strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
 
-                        <span>Очистить корзину</span>
+                        <span onClick={onClearCart}>Очистить корзину</span>
                     </div>
                 </div>
                 <div className="content__items">
