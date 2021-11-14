@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CartItem({name, type, size, totalPrice, totalCount, imageUrl}) {
+function CartItem({name, type, size, totalPrice, totalCount, onRemoveCartItem, imageUrl}) {
     return (
         <div className="cart__item">
             <div className="cart__item-img">
@@ -45,7 +45,7 @@ function CartItem({name, type, size, totalPrice, totalCount, imageUrl}) {
                 <b>{totalPrice} ₽</b>
             </div>
             <div className="cart__item-remove">
-                <div className="button button--outline button--circle">
+                <div onClick={onRemoveCartItem} className="button button--outline button--circle">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path

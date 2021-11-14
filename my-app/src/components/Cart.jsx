@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import CartItem from "./CartItem";
 import {useDispatch, useSelector} from "react-redux";
-import {clearCart} from "../redux/action/cart";
-import CartEmpty from "../img/empty-cart.png"
+import {clearCart, removeCartItem} from "../redux/action/cart";
+import cartEmptyImage from "../img/empty-cart.png"
 
 function Cart() {
 
@@ -18,6 +18,12 @@ function Cart() {
     const onClearCart = () => {
         if (window.confirm("Вы действительно хотите очистить корзину?")) {
             dispatch(clearCart())
+        }
+    }
+
+    const onRemoveCartItem = (id) => {
+        if (window.confirm("Вы действительно хотите удалить пиццу?")) {
+            dispatch(removeCartItem(id))
         }
     }
 
@@ -64,7 +70,9 @@ function Cart() {
                                 type={element.type} size={element.size}
                                 totalPrice={items[element.id].totalPrice}
                                 totalCount={items[element.id].items.length}
-                                imageUrl={element.imageUrl}/>)}
+                                imageUrl={element.imageUrl}
+                                onRemoveCartItem={onRemoveCartItem}/>)}
+
                     </div>
                     <div className="cart__bottom">
                         <div className="cart__bottom-details">
@@ -92,7 +100,7 @@ function Cart() {
                         Вероятней всего, вы не заказывали ещё пиццу.<br/>
                         Для того, чтобы заказать пиццу, перейди на главную страницу.
                     </p>
-                    <img src={CartEmpty} alt="Empty cart"/>
+                    <img src={cartEmptyImage} alt="Empty cart"/>
                     <Link to="/" className="button button--black">
                         <span>Вернуться назад</span>
                     </Link>
