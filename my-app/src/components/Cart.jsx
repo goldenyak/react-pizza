@@ -66,6 +66,7 @@ function Cart() {
                     <div className="content__items">
                         {addedPizzas.map(element =>
                             <CartItem
+                                id={element.id}
                                 name={element.name}
                                 type={element.type} size={element.size}
                                 totalPrice={items[element.id].totalPrice}
