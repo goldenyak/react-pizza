@@ -39,6 +39,12 @@ const cart = (state = initialState, action) => {
                 totalCount: action.payload,
             };
 
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                items: [],
+            };
+
         default:
             return state;
     }

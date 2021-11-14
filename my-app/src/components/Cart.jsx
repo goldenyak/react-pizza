@@ -1,9 +1,12 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import CartItem from "./CartItem";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {clearCart} from "../redux/action/cart";
 
 function Cart() {
+
+    const dispatch = useDispatch()
 
     const {totalPrice, totalCount, items} = useSelector(({cart}) => cart)
 
