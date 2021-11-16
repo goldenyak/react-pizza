@@ -1,10 +1,18 @@
 import React from 'react';
 import Button from "./Button";
 
-function CartItem({id, name, type, size, totalPrice, totalCount, onRemoveCartItem, imageUrl}) {
+function CartItem({id, name, type, size, totalPrice, totalCount, onRemoveCartItem, onPlusItem, onMinusItem, imageUrl}) {
 
     const handleRemoveItem = () => {
         onRemoveCartItem(id)
+    }
+
+    const handlePlusItem = () => {
+        onPlusItem(id)
+    }
+
+    const handleMinusItem = () => {
+        onMinusItem(id)
     }
 
     return (
@@ -21,7 +29,7 @@ function CartItem({id, name, type, size, totalPrice, totalCount, onRemoveCartIte
                 <p>{type} тесто, {size}</p>
             </div>
             <div className="cart__item-count">
-                <div className="button button--outline button--circle cart__item-count-minus">
+                <Button onClick={handleMinusItem} className="button button--outline button--circle cart__item-count-minus">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -32,9 +40,9 @@ function CartItem({id, name, type, size, totalPrice, totalCount, onRemoveCartIte
                             fill="#EB5A1E"/>
                     </svg>
 
-                </div>
+                </Button>
                 <b>{totalCount}</b>
-                <div className="button button--outline button--circle cart__item-count-plus">
+                <Button onClick={handlePlusItem} className="button button--outline button--circle cart__item-count-plus">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -45,7 +53,7 @@ function CartItem({id, name, type, size, totalPrice, totalCount, onRemoveCartIte
                             fill="#EB5A1E"/>
                     </svg>
 
-                </div>
+                </Button>
             </div>
             <div className="cart__item-price">
                 <b>{totalPrice} ₽</b>

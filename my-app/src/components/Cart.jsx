@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import CartItem from "./CartItem";
 import {useDispatch, useSelector} from "react-redux";
-import {clearCart, removeCartItem} from "../redux/action/cart";
+import {clearCart, removeCartItem, plusItem, minusItem} from "../redux/action/cart";
 import cartEmptyImage from "../img/empty-cart.png"
 
 function Cart() {
@@ -25,6 +25,14 @@ function Cart() {
         if (window.confirm("Вы действительно хотите удалить пиццу?")) {
             dispatch(removeCartItem(id))
         }
+    }
+
+    const onPlusItem = (id) => {
+        dispatch(plusItem(id))
+    }
+
+    const onMinusItem = (id) => {
+        dispatch(minusItem(id))
     }
 
     return (
@@ -72,7 +80,9 @@ function Cart() {
                                 totalPrice={items[element.id].totalPrice}
                                 totalCount={items[element.id].items.length}
                                 imageUrl={element.imageUrl}
-                                onRemoveCartItem={onRemoveCartItem}/>)}
+                                onRemoveCartItem={onRemoveCartItem}
+                                onPlusItem={onPlusItem}
+                                onMinusItem={onMinusItem}/>)}
 
                     </div>
                     <div className="cart__bottom">
